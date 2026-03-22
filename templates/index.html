@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мессенджер</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <div class="app">
+        <div class="sidebar">
+            <div class="user-info">
+                <img src="/static/uploads/{{ current_user.profile_picture }}" class="avatar">
+                <span>{{ current_user.username }}</span>
+                <a href="/profile">✎</a>
+                <a href="/logout">🚪</a>
+            </div>
+            <div class="search">
+                <input type="text" id="search" placeholder="Поиск...">
+            </div>
+            <div class="chats-list">
+                <h3>Личные чаты</h3>
+                <ul id="users-list">
+                    {% for user in users %}
+                    <li data-user-id="{{ user.id }}" data-user-name="{{ user.username }}" onclick="selectChat('user', {{ user.id }})">
+                        <img src="/static/uploads/{{ user.profile_picture }}" class="avatar-small">
+                        {{ user.username }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <h3>Группы</h3>
+                <ul id="groups-list">
+                    {% for group in groups %}
+                    <li data-group-id="{{ group.id }}" data-group-name="{{ group.name }}" onclick="selectChat('group', {{ group.id }})">
+                        {{ group.name }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <button onclick="showCreateGroupModal()">+ Создать группу</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="chat-header" id="chat-header">
+                <!-- Заголовок чата -->
+            </div>
+            <div class="messages" id="messages">
+                <!-- Сообщения -->
+            </div>
+            <div class="input-area">
+                <input type="text" id="message-input" placeholder="Введите сообщение...">
+                <button id="voice-btn" onclick="startVoiceRecording()">🎤</button>
+                <button id="call-btn" onclick="startCall()">📞</button>
+                <button id="video-btn" onclick="startVideoCall()">🎥</button>
+                <button onclick="sendMessage()">Отправить</button>
+            </div>
+        </div>
+    </div>
+    <!-- Модальное окно для создания группы -->
+    <div id="group-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Создать группу</h3>
+            <form action="/create_group" method="POST">
+                <input type="text" name="name" placeholder="Название группы" required>
+                <button type="submit">Создать</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
