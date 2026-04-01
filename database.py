@@ -425,3 +425,14 @@ def update_last_seen(user_id):
     )
     conn.commit()
     conn.close()
+
+    # Добавьте эту функцию в конец database.py:
+
+    def get_all_users():
+        """Получить всех пользователей (для отладки)"""
+        conn = get_db()
+        cursor = conn.cursor()
+        cursor.execute('SELECT id, phone, username, avatar, bio, last_seen, created_at FROM users ORDER BY id')
+        users = cursor.fetchall()
+        conn.close()
+        return users

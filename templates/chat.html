@@ -14,13 +14,12 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #0a0a0a;
             height: 100vh;
             overflow: hidden;
         }
 
-        /* Main Layout */
         .app {
             display: flex;
             height: 100vh;
@@ -37,7 +36,6 @@
             height: 100vh;
         }
 
-        /* Sidebar Header */
         .sidebar-header {
             padding: 16px 20px;
             background: #1a1a1a;
@@ -48,20 +46,20 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            cursor: pointer;
         }
 
         .avatar {
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 20px;
             font-weight: 600;
             color: white;
-            cursor: pointer;
             overflow: hidden;
         }
 
@@ -106,7 +104,7 @@
             background: #1a1a1a;
             border-bottom: 1px solid #2a2a2a;
             padding: 0 16px;
-            gap: 20px;
+            gap: 8px;
         }
 
         .tab-btn {
@@ -115,35 +113,29 @@
             background: none;
             border: none;
             color: #6b7280;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.2s;
             position: relative;
+            border-radius: 8px;
+        }
+
+        .tab-btn i {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 4px;
         }
 
         .tab-btn.active {
             color: #667eea;
-        }
-
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #667eea;
-        }
-
-        .tab-badge {
-            position: relative;
+            background: rgba(102, 126, 234, 0.1);
         }
 
         .badge {
             position: absolute;
-            top: -8px;
-            right: -12px;
+            top: 4px;
+            right: 10px;
             background: #ef4444;
             color: white;
             font-size: 10px;
@@ -169,12 +161,12 @@
             display: block;
         }
 
-        /* Chats List */
-        .chats-list, .contacts-list, .calls-list {
+        /* Lists */
+        .chats-list, .contacts-list, .calls-list, .settings-list {
             padding: 8px 0;
         }
 
-        .chat-item, .contact-item, .call-item {
+        .chat-item, .contact-item, .call-item, .settings-item {
             display: flex;
             align-items: center;
             padding: 12px 16px;
@@ -183,7 +175,7 @@
             gap: 12px;
         }
 
-        .chat-item:hover, .contact-item:hover, .call-item:hover {
+        .chat-item:hover, .contact-item:hover, .call-item:hover, .settings-item:hover {
             background: #2a2a2a;
         }
 
@@ -191,7 +183,7 @@
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -208,7 +200,7 @@
             object-fit: cover;
         }
 
-        .chat-info, .contact-info, .call-info {
+        .chat-info, .contact-info, .call-info, .settings-info {
             flex: 1;
             min-width: 0;
         }
@@ -219,7 +211,7 @@
             margin-bottom: 4px;
         }
 
-        .chat-name, .contact-name, .call-name {
+        .chat-name, .contact-name, .call-name, .settings-name {
             color: white;
             font-weight: 500;
             font-size: 16px;
@@ -302,7 +294,7 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -350,9 +342,6 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%232a2a2a" opacity="0.1"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>');
-            background-repeat: repeat;
-            background-size: 30px;
         }
 
         .message {
@@ -415,6 +404,7 @@
             background: rgba(255,255,255,0.1);
             padding: 8px 12px;
             border-radius: 12px;
+            cursor: pointer;
         }
 
         .message-file i {
@@ -482,10 +472,6 @@
             font-family: inherit;
         }
 
-        .message-input::placeholder {
-            color: #6b7280;
-        }
-
         .send-btn {
             background: #667eea;
             border: none;
@@ -495,9 +481,6 @@
             color: white;
             font-size: 18px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         /* Modal */
@@ -551,7 +534,6 @@
             padding: 20px;
         }
 
-        /* Profile Modal */
         .profile-info {
             text-align: center;
             margin-bottom: 24px;
@@ -562,7 +544,7 @@
             height: 100px;
             border-radius: 50%;
             margin: 0 auto 16px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -570,6 +552,7 @@
             font-weight: 600;
             color: white;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .profile-avatar img {
@@ -600,6 +583,7 @@
             gap: 12px;
             justify-content: center;
             margin: 24px 0;
+            flex-wrap: wrap;
         }
 
         .profile-btn {
@@ -620,40 +604,59 @@
             color: white;
         }
 
-        .more-menu {
-            position: relative;
-            display: inline-block;
-        }
-
-        .more-menu-content {
-            display: none;
-            position: absolute;
-            bottom: 100%;
-            right: 0;
+        .profile-btn-secondary {
             background: #2a2a2a;
-            border-radius: 12px;
-            min-width: 200px;
-            margin-bottom: 8px;
-            z-index: 10;
-        }
-
-        .more-menu-content.active {
-            display: block;
-        }
-
-        .more-menu-item {
-            padding: 12px 16px;
             color: white;
-            cursor: pointer;
-            transition: background 0.2s;
         }
 
-        .more-menu-item:hover {
-            background: #3a3a3a;
+        /* Settings */
+        .settings-item-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-size: 18px;
         }
 
-        .more-menu-item.danger {
-            color: #ef4444;
+        .settings-description {
+            color: #6b7280;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .privacy-setting {
+            margin-bottom: 16px;
+        }
+
+        .privacy-setting label {
+            color: white;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .privacy-setting select {
+            width: 100%;
+            padding: 10px;
+            background: #2a2a2a;
+            border: none;
+            border-radius: 8px;
+            color: white;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6b7280;
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 16px;
         }
 
         /* Responsive */
@@ -677,26 +680,6 @@
                 width: 100%;
             }
         }
-
-        /* Typing indicator */
-        .typing-indicator {
-            padding: 8px 16px;
-            color: #6b7280;
-            font-size: 12px;
-            font-style: italic;
-        }
-
-        /* Empty state */
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #6b7280;
-        }
-
-        .empty-state i {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
     </style>
 </head>
 <body>
@@ -704,7 +687,7 @@
         <!-- Sidebar -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <div class="user-info" onclick="openSettings()">
+                <div class="user-info" onclick="openSettingsModal()">
                     <div class="avatar" id="userAvatar">
                         {% if user['avatar'] %}
                         <img src="/{{ user['avatar'] }}" alt="avatar">
@@ -719,20 +702,27 @@
                 </div>
             </div>
 
-            <div class="search-bar">
+            <div class="search-bar" id="searchContainer">
                 <input type="text" placeholder="Поиск..." id="globalSearch">
             </div>
 
             <div class="tabs-nav">
                 <button class="tab-btn active" data-tab="chats">
-                    <i class="fas fa-comments"></i> Чаты
+                    <i class="fas fa-comments"></i>
+                    <span>Чаты</span>
                     <span class="badge" id="totalUnreadBadge" style="display: none;">0</span>
                 </button>
                 <button class="tab-btn" data-tab="contacts">
-                    <i class="fas fa-address-book"></i> Контакты
+                    <i class="fas fa-address-book"></i>
+                    <span>Контакты</span>
                 </button>
                 <button class="tab-btn" data-tab="calls">
-                    <i class="fas fa-phone"></i> Звонки
+                    <i class="fas fa-phone"></i>
+                    <span>Звонки</span>
+                </button>
+                <button class="tab-btn" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Настройки</span>
                 </button>
             </div>
 
@@ -753,7 +743,7 @@
                                 <div class="chat-header">
                                     <span class="chat-name">{{ chat.username }}</span>
                                     {% if chat.last_message_time %}
-                                    <span class="chat-time">{{ chat.last_message_time.split()[0] }}</span>
+                                    <span class="chat-time">{{ chat.last_message_time.split()[0] if chat.last_message_time else '' }}</span>
                                     {% endif %}
                                 </div>
                                 <div class="chat-preview">
@@ -779,9 +769,6 @@
 
                 <!-- Contacts Tab -->
                 <div class="tab-pane" id="contacts-tab">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Найти по номеру или имени..." id="contactSearch">
-                    </div>
                     <div class="contacts-list" id="contactsList">
                         {% for contact in contacts %}
                         <div class="contact-item" onclick="openChatWithUser({{ contact.id }}, '{{ contact.username }}')">
@@ -806,7 +793,7 @@
                 <!-- Calls Tab -->
                 <div class="tab-pane" id="calls-tab">
                     <div class="search-bar">
-                        <button class="new-call-btn" onclick="showNewCallModal()" style="width: 100%; padding: 10px; background: #667eea; border: none; border-radius: 24px; color: white; cursor: pointer;">
+                        <button class="profile-btn profile-btn-primary" onclick="showNewCallModal()" style="width: 100%;">
                             <i class="fas fa-phone-plus"></i> Новый звонок
                         </button>
                     </div>
@@ -814,33 +801,72 @@
                         {% for call in call_history %}
                         <div class="call-item" onclick="openChatWithUser({{ call.contact_id }}, '{{ call.contact_name }}')">
                             <div class="call-avatar">
-                                {% if call.contact_avatar %}
-                                <img src="/{{ call.contact_avatar }}" alt="avatar">
-                                {% else %}
                                 <span>{{ call.contact_name[0].upper() }}</span>
-                                {% endif %}
                             </div>
                             <div class="call-info">
                                 <div class="call-header">
                                     <span class="call-name">{{ call.contact_name }}</span>
-                                    <span class="call-time">{{ call.created_at.split()[0] }}</span>
+                                    <span class="call-time">{{ call.created_at.split()[0] if call.created_at else '' }}</span>
                                 </div>
                                 <div class="call-type {{ call.status }}">
                                     <i class="fas fa-{% if call.is_outgoing %}arrow-up{% else %}arrow-down{% endif %}"></i>
-                                    {% if call.status == 'answered' %}
-                                    Принят
-                                    {% elif call.status == 'missed' %}
-                                    Пропущен
-                                    {% elif call.status == 'ringing' %}
-                                    Звонок
+                                    {% if call.status == 'answered' %}Принят
+                                    {% elif call.status == 'missed' %}Пропущен
+                                    {% elif call.status == 'ringing' %}Звонок
                                     {% endif %}
-                                    {% if call.duration > 0 %}
-                                    ({{ call.duration }} сек)
-                                    {% endif %}
+                                    {% if call.duration > 0 %}({{ call.duration }} сек){% endif %}
                                 </div>
                             </div>
                         </div>
                         {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div class="tab-pane" id="settings-tab">
+                    <div class="settings-list">
+                        <div class="settings-item" onclick="openProfileSettings()">
+                            <div class="settings-item-icon"><i class="fas fa-user"></i></div>
+                            <div class="settings-info">
+                                <div class="settings-name">Мой профиль</div>
+                                <div class="settings-description">Изменить фото, имя, описание</div>
+                            </div>
+                        </div>
+                        <div class="settings-item" onclick="openFavorites()">
+                            <div class="settings-item-icon"><i class="fas fa-star"></i></div>
+                            <div class="settings-info">
+                                <div class="settings-name">Избранное</div>
+                                <div class="settings-description">Облачное хранилище и заметки</div>
+                            </div>
+                        </div>
+                        <div class="settings-item" onclick="openPrivacySettings()">
+                            <div class="settings-item-icon"><i class="fas fa-lock"></i></div>
+                            <div class="settings-info">
+                                <div class="settings-name">Конфиденциальность</div>
+                                <div class="settings-description">Кто может видеть вашу активность</div>
+                            </div>
+                        </div>
+                        <div class="settings-item" onclick="openAppearanceSettings()">
+                            <div class="settings-item-icon"><i class="fas fa-palette"></i></div>
+                            <div class="settings-info">
+                                <div class="settings-name">Оформление</div>
+                                <div class="settings-description">Тема, размер текста, обои</div>
+                            </div>
+                        </div>
+                        <div class="settings-item" onclick="openCallsHistory()">
+                            <div class="settings-item-icon"><i class="fas fa-history"></i></div>
+                            <div class="settings-info">
+                                <div class="settings-name">Недавние звонки</div>
+                                <div class="settings-description">История вызовов</div>
+                            </div>
+                        </div>
+                        <div class="settings-item" onclick="openDeleteAccount()">
+                            <div class="settings-item-icon"><i class="fas fa-trash-alt"></i></div>
+                            <div class="settings-info">
+                                <div class="settings-name" style="color: #ef4444;">Удалить аккаунт</div>
+                                <div class="settings-description">Безвозвратно удалить все данные</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -875,7 +901,7 @@
             </div>
 
             <div class="message-input-area" id="messageInputArea" style="display: none;">
-                <button class="attach-btn" onclick="showAttachMenu()">
+                <button class="attach-btn" onclick="document.getElementById('fileInput').click()">
                     <i class="fas fa-paperclip"></i>
                 </button>
                 <textarea class="message-input" id="messageInput" placeholder="Сообщение..." rows="1" onkeypress="handleKeyPress(event)"></textarea>
@@ -890,67 +916,115 @@
     <div class="modal" id="profileModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Профиль пользователя</h3>
+                <h3>Профиль</h3>
                 <button class="modal-close" onclick="closeModal('profileModal')">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="profile-info">
-                    <div class="profile-avatar" id="profileAvatar">
+                    <div class="profile-avatar" id="profileAvatar" onclick="changeAvatar()">
                         <span>?</span>
                     </div>
-                    <div class="profile-name" id="profileName"></div>
-                    <div class="profile-phone" id="profilePhone"></div>
-                    <div class="profile-bio" id="profileBio"></div>
+                    <input type="text" id="profileNameInput" class="profile-name" style="background: none; border: none; text-align: center; width: 100%;" value="{{ user['username'] }}">
+                    <div class="profile-phone" id="profilePhone">{{ user['phone'] }}</div>
+                    <textarea id="profileBioInput" class="profile-bio" style="background: #2a2a2a; border: none; border-radius: 8px; width: 100%; padding: 8px; color: white; margin-top: 12px;" placeholder="О себе">{{ user['bio'] or '' }}</textarea>
                 </div>
                 <div class="profile-actions">
-                    <button class="profile-btn profile-btn-primary" onclick="callFromProfile('audio')">
-                        <i class="fas fa-phone"></i> Аудио
-                    </button>
-                    <button class="profile-btn profile-btn-primary" onclick="callFromProfile('video')">
-                        <i class="fas fa-video"></i> Видео
-                    </button>
-                    <div class="more-menu">
-                        <button class="profile-btn" onclick="toggleMoreMenu()">
-                            <i class="fas fa-ellipsis-h"></i> Ещё
-                        </button>
-                        <div class="more-menu-content" id="moreMenu">
-                            <div class="more-menu-item" onclick="deleteChat()">Удалить чат</div>
-                            <div class="more-menu-item danger" onclick="blockUser()">Заблокировать</div>
-                            <div class="more-menu-item" onclick="changeWallpaper()">Изменить обои</div>
-                        </div>
-                    </div>
+                    <button class="profile-btn profile-btn-primary" onclick="updateProfile()">Сохранить</button>
+                    <button class="profile-btn profile-btn-secondary" onclick="closeModal('profileModal')">Отмена</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal" id="settingsModal">
+    <div class="modal" id="privacyModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Настройки</h3>
-                <button class="modal-close" onclick="closeModal('settingsModal')">&times;</button>
+                <h3>Конфиденциальность</h3>
+                <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="profile-info">
-                    <div class="profile-avatar" id="settingsAvatar" onclick="changeAvatar()">
-                        {% if user['avatar'] %}
-                        <img src="/{{ user['avatar'] }}" alt="avatar">
-                        {% else %}
-                        <span>{{ user['username'][0].upper() }}</span>
-                        {% endif %}
-                    </div>
-                    <input type="text" id="settingsUsername" value="{{ user['username'] }}" style="width: 100%; padding: 8px; background: #2a2a2a; border: none; border-radius: 8px; color: white; text-align: center; margin: 8px 0;">
-                    <div class="profile-phone">{{ user['phone'] }}</div>
-                    <textarea id="settingsBio" placeholder="О себе" style="width: 100%; padding: 8px; background: #2a2a2a; border: none; border-radius: 8px; color: white; margin-top: 12px;">{{ user['bio'] or '' }}</textarea>
+                <div class="privacy-setting">
+                    <label>Кто может видеть время захода</label>
+                    <select id="privacyLastSeen">
+                        <option value="everyone">Все</option>
+                        <option value="contacts">Контакты</option>
+                        <option value="nobody">Никто</option>
+                    </select>
                 </div>
+                <div class="privacy-setting">
+                    <label>Кто может видеть фото профиля</label>
+                    <select id="privacyPhoto">
+                        <option value="everyone">Все</option>
+                        <option value="contacts">Контакты</option>
+                        <option value="nobody">Никто</option>
+                    </select>
+                </div>
+                <div class="privacy-setting">
+                    <label>Кто может пересылать сообщения</label>
+                    <select id="privacyForward">
+                        <option value="everyone">Все</option>
+                        <option value="contacts">Контакты</option>
+                        <option value="nobody">Никто</option>
+                    </select>
+                </div>
+                <div class="privacy-setting">
+                    <label>Кто может звонить</label>
+                    <select id="privacyCalls">
+                        <option value="everyone">Все</option>
+                        <option value="contacts">Контакты</option>
+                        <option value="nobody">Никто</option>
+                    </select>
+                </div>
+                <div class="privacy-setting">
+                    <label>Кто может писать</label>
+                    <select id="privacyMessages">
+                        <option value="everyone">Все</option>
+                        <option value="contacts">Контакты</option>
+                        <option value="nobody">Никто</option>
+                    </select>
+                </div>
+                <button class="profile-btn profile-btn-primary" onclick="savePrivacySettings()" style="width: 100%; margin-top: 16px;">Сохранить</button>
+            </div>
+        </div>
+    </div>
 
-                <div style="margin-top: 24px;">
-                    <button class="profile-btn profile-btn-primary" onclick="updateProfile()" style="width: 100%; margin-bottom: 12px;">Сохранить</button>
-                    <button class="profile-btn profile-btn-primary" onclick="openFavorites()" style="width: 100%; margin-bottom: 12px;">Избранное</button>
-                    <button class="profile-btn profile-btn-primary" onclick="openPrivacySettings()" style="width: 100%; margin-bottom: 12px;">Конфиденциальность</button>
-                    <button class="profile-btn profile-btn-primary" onclick="openAppearanceSettings()" style="width: 100%; margin-bottom: 12px;">Оформление</button>
-                    <button class="profile-btn profile-btn-danger" onclick="deleteAccount()" style="width: 100%;">Удалить аккаунт</button>
+    <div class="modal" id="appearanceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Оформление</h3>
+                <button class="modal-close" onclick="closeModal('appearanceModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="privacy-setting">
+                    <label>Тема</label>
+                    <select id="themeSelect" onchange="changeTheme()">
+                        <option value="dark">Тёмная</option>
+                        <option value="light">Светлая</option>
+                    </select>
                 </div>
+                <div class="privacy-setting">
+                    <label>Размер текста: <span id="fontSizeValue">14</span>px</label>
+                    <input type="range" id="fontSizeRange" min="12" max="20" value="14" onchange="changeFontSize()">
+                </div>
+                <div class="privacy-setting">
+                    <label>Обои чата</label>
+                    <button class="profile-btn profile-btn-primary" onclick="changeWallpaper()" style="width: 100%;">Выбрать обои</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="favoritesModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Избранное</h3>
+                <button class="modal-close" onclick="closeModal('favoritesModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <button class="profile-btn profile-btn-primary" onclick="addToFavorites()" style="width: 100%; margin-bottom: 16px;">
+                    <i class="fas fa-plus"></i> Добавить заметку или файл
+                </button>
+                <div id="favoritesList"></div>
             </div>
         </div>
     </div>
@@ -963,22 +1037,7 @@
             </div>
             <div class="modal-body">
                 <input type="text" id="callSearch" placeholder="Поиск контакта..." style="width: 100%; padding: 10px; background: #2a2a2a; border: none; border-radius: 24px; color: white; margin-bottom: 16px;">
-                <div id="callContactsList">
-                    {% for contact in contacts %}
-                    <div class="contact-item" onclick="selectContactForCall({{ contact.id }}, '{{ contact.username }}')">
-                        <div class="contact-avatar">
-                            {% if contact.avatar %}
-                            <img src="/{{ contact.avatar }}" alt="avatar">
-                            {% else %}
-                            <span>{{ contact.username[0].upper() }}</span>
-                            {% endif %}
-                        </div>
-                        <div class="contact-info">
-                            <span class="contact-name">{{ contact.username }}</span>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
+                <div id="callContactsList"></div>
             </div>
         </div>
     </div>
@@ -1000,118 +1059,6 @@
         </div>
     </div>
 
-    <div class="modal" id="favoritesModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Избранное</h3>
-                <button class="modal-close" onclick="closeModal('favoritesModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <button class="profile-btn profile-btn-primary" onclick="addToFavorites()" style="width: 100%; margin-bottom: 16px;">
-                    <i class="fas fa-plus"></i> Добавить заметку или файл
-                </button>
-                <div id="favoritesList">
-                    {% for fav in favorites %}
-                    <div class="favorite-item" style="background: #2a2a2a; border-radius: 12px; padding: 12px; margin-bottom: 12px;">
-                        {% if fav.file_path %}
-                        <div class="message-file" onclick="downloadFile('/{{ fav.file_path }}', '{{ fav.file_name }}')">
-                            <i class="fas fa-file"></i>
-                            <div class="message-file-info">
-                                <div class="message-file-name">{{ fav.file_name }}</div>
-                                <div class="message-file-size">{{ (fav.file_size / 1024)|round|int }} KB</div>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% if fav.note %}
-                        <div class="message-text" style="color: white;">{{ fav.note }}</div>
-                        {% endif %}
-                        <div class="message-time" style="color: #6b7280; font-size: 11px; margin-top: 8px;">{{ fav.created_at }}</div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="privacyModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Конфиденциальность</h3>
-                <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="privacy-setting" style="margin-bottom: 16px;">
-                    <label style="color: white; display: block; margin-bottom: 8px;">Кто может видеть время захода</label>
-                    <select id="privacyLastSeen" style="width: 100%; padding: 8px; background: #2a2a2a; border: none; border-radius: 8px; color: white;">
-                        <option value="everyone">Все</option>
-                        <option value="contacts">Контакты</option>
-                        <option value="nobody">Никто</option>
-                    </select>
-                </div>
-                <div class="privacy-setting" style="margin-bottom: 16px;">
-                    <label style="color: white; display: block; margin-bottom: 8px;">Кто может видеть фото профиля</label>
-                    <select id="privacyPhoto" style="width: 100%; padding: 8px; background: #2a2a2a; border: none; border-radius: 8px; color: white;">
-                        <option value="everyone">Все</option>
-                        <option value="contacts">Контакты</option>
-                        <option value="nobody">Никто</option>
-                    </select>
-                </div>
-                <div class="privacy-setting" style="margin-bottom: 16px;">
-                    <label style="color: white; display: block; margin-bottom: 8px;">Кто может пересылать сообщения</label>
-                    <select id="privacyForward" style="width: 100%; padding: 8px; background: #2a2a2a; border: none; border-radius: 8px; color: white;">
-                        <option value="everyone">Все</option>
-                        <option value="contacts">Контакты</option>
-                        <option value="nobody">Никто</option>
-                    </select>
-                </div>
-                <div class="privacy-setting" style="margin-bottom: 16px;">
-                    <label style="color: white; display: block; margin-bottom: 8px;">Кто может звонить</label>
-                    <select id="privacyCalls" style="width: 100%; padding: 8px; background: #2a2a2a; border: none; border-radius: 8px; color: white;">
-                        <option value="everyone">Все</option>
-                        <option value="contacts">Контакты</option>
-                        <option value="nobody">Никто</option>
-                    </select>
-                </div>
-                <div class="privacy-setting" style="margin-bottom: 16px;">
-                    <label style="color: white; display: block; margin-bottom: 8px;">Кто может писать</label>
-                    <select id="privacyMessages" style="width: 100%; padding: 8px; background: #2a2a2a; border: none; border-radius: 8px; color: white;">
-                        <option value="everyone">Все</option>
-                        <option value="contacts">Контакты</option>
-                        <option value="nobody">Никто</option>
-                    </select>
-                </div>
-                <button class="profile-btn profile-btn-primary" onclick="savePrivacySettings()" style="width: 100%;">Сохранить</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="appearanceModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Оформление</h3>
-                <button class="modal-close" onclick="closeModal('appearanceModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div style="margin-bottom: 16px;">
-                    <label style="color: white; display: block; margin-bottom: 8px;">Тема</label>
-                    <select id="themeSelect" style="width: 100%; padding: 8px; background: #2a2a2a; border: none; border-radius: 8px; color: white;" onchange="changeTheme()">
-                        <option value="dark">Тёмная</option>
-                        <option value="light">Светлая</option>
-                        <option value="classic">Классическая</option>
-                    </select>
-                </div>
-                <div style="margin-bottom: 16px;">
-                    <label style="color: white; display: block; margin-bottom: 8px;">Размер текста</label>
-                    <input type="range" id="fontSize" min="12" max="20" value="14" onchange="changeFontSize()">
-                </div>
-                <div style="margin-bottom: 16px;">
-                    <label style="color: white; display: block; margin-bottom: 8px;">Обои чата</label>
-                    <button class="profile-btn profile-btn-primary" onclick="changeChatWallpaper()" style="width: 100%;">Выбрать обои</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <input type="file" id="fileInput" style="display: none;" multiple>
     <input type="file" id="avatarInput" style="display: none;" accept="image/*">
 
@@ -1120,41 +1067,22 @@
         let currentChatId = null;
         let currentUserId = null;
         let currentUsername = null;
-        let typingTimeout = null;
         let selectedCallContact = null;
-        let selectedCallContactName = null;
+        let isSending = false;
 
-        // Initialize socket connection
+        // Initialize socket
         function initSocket() {
             socket = io();
 
             socket.on('connect', function() {
-                console.log('Connected to server');
+                console.log('✅ WebSocket connected');
             });
 
             socket.on('new_message', function(data) {
                 if (data.chat_id == currentChatId) {
                     displayMessage(data.message);
-                    markMessagesAsRead();
                 }
                 updateChatsList();
-            });
-
-            socket.on('messages_read', function(data) {
-                if (data.chat_id == currentChatId) {
-                    updateMessageStatuses();
-                }
-                updateChatsList();
-            });
-
-            socket.on('user_typing', function(data) {
-                if (currentUserId == data.user_id) {
-                    showTypingIndicator(data.username);
-                }
-            });
-
-            socket.on('incoming_call', function(data) {
-                showIncomingCall(data);
             });
         }
 
@@ -1166,28 +1094,47 @@
                 btn.classList.add('active');
                 document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
                 document.getElementById(`${tab}-tab`).classList.add('active');
+
+                if (tab === 'contacts') {
+                    loadContacts();
+                } else if (tab === 'calls') {
+                    loadCalls();
+                } else if (tab === 'settings') {
+                    loadSettings();
+                }
             });
         });
 
-        // Global search
+        // Search
+        let searchTimeout;
         document.getElementById('globalSearch').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            if (query.length > 2) {
-                searchUsers(query);
+            const query = e.target.value.trim();
+            const activeTab = document.querySelector('.tab-btn.active').dataset.tab;
+
+            clearTimeout(searchTimeout);
+
+            if (activeTab === 'contacts' && query.length >= 2) {
+                searchTimeout = setTimeout(() => {
+                    searchUsers(query);
+                }, 500);
+            } else if (activeTab === 'contacts' && query.length === 0) {
+                loadContacts();
+            } else if (activeTab === 'chats') {
+                filterChats(query);
             }
         });
 
-        // Contact search
-        document.getElementById('contactSearch').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            filterContacts(query);
-        });
-
-        // Call search
-        document.getElementById('callSearch').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            filterCallContacts(query);
-        });
+        function filterChats(query) {
+            const items = document.querySelectorAll('#chatsList .chat-item');
+            items.forEach(item => {
+                const name = item.querySelector('.chat-name')?.innerText.toLowerCase();
+                if (name && name.includes(query.toLowerCase())) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
 
         function searchUsers(query) {
             fetch(`/api/search_users?q=${encodeURIComponent(query)}`)
@@ -1196,46 +1143,87 @@
                     const contactsList = document.getElementById('contactsList');
                     if (users.length > 0) {
                         contactsList.innerHTML = users.map(user => `
-                            <div class="contact-item" onclick="addContactAndChat(${user.id}, '${user.username}')">
+                            <div class="contact-item" onclick="addContactAndChat(${user.id}, '${escapeHtml(user.username)}')">
                                 <div class="contact-avatar">
                                     ${user.avatar ? `<img src="/${user.avatar}">` : `<span>${user.username[0].toUpperCase()}</span>`}
                                 </div>
                                 <div class="contact-info">
                                     <div class="contact-header">
-                                        <span class="contact-name">${user.username}</span>
+                                        <span class="contact-name">${escapeHtml(user.username)}</span>
                                     </div>
-                                    <span class="chat-message">${user.phone} ${user.bio ? '• ' + user.bio : ''}</span>
+                                    <span class="chat-message">${escapeHtml(user.phone)} ${user.bio ? '• ' + escapeHtml(user.bio) : ''}</span>
                                 </div>
                             </div>
                         `).join('');
                     } else {
-                        contactsList.innerHTML = '<div class="empty-state"><p>Пользователи не найдены</p></div>';
+                        contactsList.innerHTML = '<div class="empty-state"><i class="fas fa-user-slash"></i><p>Пользователи не найдены</p></div>';
                     }
                 });
         }
 
-        function filterContacts(query) {
-            const items = document.querySelectorAll('#contactsList .contact-item');
-            items.forEach(item => {
-                const name = item.querySelector('.contact-name').innerText.toLowerCase();
-                if (name.includes(query) || query === '') {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+        function loadContacts() {
+            fetch('/api/get_contacts')
+                .then(res => res.json())
+                .then(contacts => {
+                    const contactsList = document.getElementById('contactsList');
+                    if (contacts.length > 0) {
+                        contactsList.innerHTML = contacts.map(contact => `
+                            <div class="contact-item" onclick="openChatWithUser(${contact.id}, '${escapeHtml(contact.username)}')">
+                                <div class="contact-avatar">
+                                    ${contact.avatar ? `<img src="/${contact.avatar}">` : `<span>${contact.username[0].toUpperCase()}</span>`}
+                                </div>
+                                <div class="contact-info">
+                                    <span class="contact-name">${escapeHtml(contact.username)}</span>
+                                    <span class="chat-message">${escapeHtml(contact.phone)}</span>
+                                </div>
+                            </div>
+                        `).join('');
+                    } else {
+                        contactsList.innerHTML = '<div class="empty-state"><i class="fas fa-address-book"></i><p>Нет контактов. Найдите пользователей через поиск!</p></div>';
+                    }
+                });
         }
 
-        function filterCallContacts(query) {
-            const items = document.querySelectorAll('#callContactsList .contact-item');
-            items.forEach(item => {
-                const name = item.querySelector('.contact-name').innerText.toLowerCase();
-                if (name.includes(query) || query === '') {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+        function loadCalls() {
+            fetch('/api/get_call_history')
+                .then(res => res.json())
+                .then(calls => {
+                    const callsList = document.getElementById('callsList');
+                    if (calls.length > 0) {
+                        callsList.innerHTML = calls.map(call => `
+                            <div class="call-item" onclick="openChatWithUser(${call.contact_id}, '${escapeHtml(call.contact_name)}')">
+                                <div class="call-avatar">
+                                    <span>${call.contact_name[0].toUpperCase()}</span>
+                                </div>
+                                <div class="call-info">
+                                    <div class="call-header">
+                                        <span class="call-name">${escapeHtml(call.contact_name)}</span>
+                                        <span class="call-time">${call.created_at ? call.created_at.split('T')[0] : ''}</span>
+                                    </div>
+                                    <div class="call-type ${call.status}">
+                                        <i class="fas fa-${call.is_outgoing ? 'arrow-up' : 'arrow-down'}"></i>
+                                        ${call.status === 'answered' ? 'Принят' : call.status === 'missed' ? 'Пропущен' : 'Звонок'}
+                                        ${call.duration > 0 ? '(' + call.duration + ' сек)' : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('');
+                    } else {
+                        callsList.innerHTML = '<div class="empty-state"><i class="fas fa-phone-slash"></i><p>Нет звонков</p></div>';
+                    }
+                });
+        }
+
+        function loadSettings() {
+            fetch('/api/get_privacy')
+                .then(res => res.json())
+                .then(settings => {
+                    document.getElementById('privacyLastSeen').value = settings.last_seen;
+                    document.getElementById('privacyPhoto').value = settings.profile_photo;
+                    document.getElementById('privacyForward').value = settings.forward_messages;
+                    document.getElementById('privacyCalls').value = settings.calls;
+                    document.getElementById('privacyMessages').value = settings.messages;
+                });
         }
 
         function addContactAndChat(userId, username) {
@@ -1244,6 +1232,9 @@
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({contact_id: userId})
             }).then(() => {
+                openChatWithUser(userId, username);
+                loadContacts();
+            }).catch(() => {
                 openChatWithUser(userId, username);
             });
         }
@@ -1257,20 +1248,24 @@
                 .then(res => res.json())
                 .then(data => {
                     displayMessages(data.messages);
-                    updateChatHeader(data.other_user);
+                    document.getElementById('chatUserName').innerText = username;
+                    document.getElementById('chatUserAvatar').innerHTML = data.other_user && data.other_user.avatar ?
+                        `<img src="/${data.other_user.avatar}">` :
+                        `<span>${username[0].toUpperCase()}</span>`;
+                    document.getElementById('chatUserStatus').innerText = data.other_user && data.other_user.bio ? data.other_user.bio : 'Был(-а) недавно';
                     document.getElementById('messageInputArea').style.display = 'flex';
 
-                    socket.emit('join_chat', {chat_id: chatId});
+                    if (socket) {
+                        socket.emit('join_chat', {chat_id: chatId});
+                    }
                     markMessagesAsRead();
                 });
 
-            // Update active chat in sidebar
             document.querySelectorAll('.chat-item').forEach(item => {
                 item.style.background = '';
             });
             event.currentTarget.style.background = '#2a2a2a';
 
-            // On mobile, close sidebar
             if (window.innerWidth <= 768) {
                 document.getElementById('sidebar').classList.remove('active');
             }
@@ -1285,14 +1280,18 @@
                     currentUsername = username;
 
                     displayMessages(data.messages);
-                    updateChatHeader(data.other_user);
+                    document.getElementById('chatUserName').innerText = username;
+                    document.getElementById('chatUserAvatar').innerHTML = data.other_user && data.other_user.avatar ?
+                        `<img src="/${data.other_user.avatar}">` :
+                        `<span>${username[0].toUpperCase()}</span>`;
+                    document.getElementById('chatUserStatus').innerText = data.other_user && data.other_user.bio ? data.other_user.bio : 'Был(-а) недавно';
                     document.getElementById('messageInputArea').style.display = 'flex';
 
-                    socket.emit('join_chat', {chat_id: data.chat_id});
-                    markMessagesAsRead();
+                    if (socket) {
+                        socket.emit('join_chat', {chat_id: data.chat_id});
+                    }
 
-                    // Add to sidebar chats if not exists
-                    addChatToSidebar(data.chat_id, userId, username, data.other_user.avatar);
+                    addChatToSidebar(data.chat_id, userId, username, data.other_user?.avatar);
                 });
         }
 
@@ -1307,7 +1306,7 @@
                         </div>
                         <div class="chat-info">
                             <div class="chat-header">
-                                <span class="chat-name">${username}</span>
+                                <span class="chat-name">${escapeHtml(username)}</span>
                             </div>
                             <div class="chat-preview">
                                 <span class="chat-message">Новый чат</span>
@@ -1331,22 +1330,21 @@
         }
 
         function formatMessage(msg) {
-            const isOutgoing = msg.sender_id == {{ user.id }};
-            const status = isOutgoing ? (msg.is_read ? '<i class="fas fa-check-double"></i>' : '<i class="fas fa-check"></i>') : '';
+            const isOutgoing = msg.sender_id == {{ user['id'] }};
             const time = new Date(msg.created_at).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
 
             let contentHtml = '';
             if (msg.file_path) {
                 if (msg.file_type === 'photo') {
-                    contentHtml = `<div class="message-media" onclick="openMedia('/${msg.file_path}')"><img src="/${msg.file_path}" alt="photo"></div>`;
+                    contentHtml = `<div class="message-media" onclick="window.open('/${msg.file_path}', '_blank')"><img src="/${msg.file_path}" alt="photo"></div>`;
                 } else if (msg.file_type === 'video') {
-                    contentHtml = `<div class="message-media" onclick="openMedia('/${msg.file_path}')"><video src="/${msg.file_path}" controls></video></div>`;
+                    contentHtml = `<div class="message-media" onclick="window.open('/${msg.file_path}', '_blank')"><video src="/${msg.file_path}" controls style="max-width: 100%; max-height: 300px;"></video></div>`;
                 } else {
                     contentHtml = `
                         <div class="message-file" onclick="downloadFile('/${msg.file_path}', '${msg.file_name}')">
                             <i class="fas fa-file"></i>
                             <div class="message-file-info">
-                                <div class="message-file-name">${msg.file_name}</div>
+                                <div class="message-file-name">${escapeHtml(msg.file_name)}</div>
                                 <div class="message-file-size">${Math.round(msg.file_size / 1024)} KB</div>
                             </div>
                         </div>
@@ -1363,7 +1361,6 @@
                         ${contentHtml}
                         <div class="message-meta">
                             <span class="message-time">${time}</span>
-                            <span class="message-status">${status}</span>
                         </div>
                     </div>
                 </div>
@@ -1379,21 +1376,14 @@
             container.scrollTop = container.scrollHeight;
         }
 
-        function updateChatHeader(user) {
-            const avatarDiv = document.getElementById('chatUserAvatar');
-            if (user.avatar) {
-                avatarDiv.innerHTML = `<img src="/${user.avatar}" alt="avatar">`;
-            } else {
-                avatarDiv.innerHTML = `<span>${user.username[0].toUpperCase()}</span>`;
-            }
-            document.getElementById('chatUserName').innerText = user.username;
-            document.getElementById('chatUserStatus').innerText = user.bio || 'Был(-а) недавно';
-        }
-
         function sendMessage() {
+            if (isSending) return;
+
             const input = document.getElementById('messageInput');
             const content = input.value.trim();
-            if (!content) return;
+            if (!content || !currentChatId) return;
+
+            isSending = true;
 
             const formData = new FormData();
             formData.append('chat_id', currentChatId);
@@ -1409,10 +1399,15 @@
                     input.style.height = 'auto';
                     updateChatsList();
                 }
+                isSending = false;
+            }).catch(() => {
+                isSending = false;
             });
         }
 
         function sendFile(file) {
+            if (!currentChatId) return;
+
             const formData = new FormData();
             formData.append('chat_id', currentChatId);
             formData.append('file', file);
@@ -1426,10 +1421,6 @@
                     updateChatsList();
                 }
             });
-        }
-
-        function showAttachMenu() {
-            document.getElementById('fileInput').click();
         }
 
         document.getElementById('fileInput').addEventListener('change', function(e) {
@@ -1455,10 +1446,11 @@
                 .then(html => {
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-                    const newChatsList = doc.querySelector('#chatsList').innerHTML;
-                    document.querySelector('#chatsList').innerHTML = newChatsList;
+                    const newChatsList = doc.querySelector('#chatsList')?.innerHTML;
+                    if (newChatsList) {
+                        document.querySelector('#chatsList').innerHTML = newChatsList;
+                    }
 
-                    // Update unread count badge
                     const unreadCount = document.querySelectorAll('.chat-badge').length;
                     const badge = document.getElementById('totalUnreadBadge');
                     if (unreadCount > 0) {
@@ -1470,63 +1462,37 @@
                 });
         }
 
-        function updateMessageStatuses() {
-            document.querySelectorAll('.message.outgoing .message-status').forEach(status => {
-                status.innerHTML = '<i class="fas fa-check-double"></i>';
-            });
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter' && !event.shiftKey) {
-                event.preventDefault();
-                sendMessage();
-            }
-
-            // Typing indicator
-            if (socket && currentChatId) {
-                if (typingTimeout) clearTimeout(typingTimeout);
-                socket.emit('typing', {chat_id: currentChatId});
-                typingTimeout = setTimeout(() => {}, 1000);
-            }
-        }
-
-        function showTypingIndicator(username) {
-            const status = document.getElementById('chatUserStatus');
-            const originalStatus = status.innerText;
-            status.innerText = `${username} печатает...`;
-            setTimeout(() => {
-                status.innerText = originalStatus;
-            }, 2000);
-        }
-
         function openUserProfile() {
             if (currentUserId) {
                 fetch(`/api/get_chat/${currentUserId}`)
                     .then(res => res.json())
                     .then(data => {
                         const user = data.other_user;
-                        const avatarDiv = document.getElementById('profileAvatar');
-                        if (user.avatar) {
-                            avatarDiv.innerHTML = `<img src="/${user.avatar}" alt="avatar">`;
-                        } else {
-                            avatarDiv.innerHTML = `<span>${user.username[0].toUpperCase()}</span>`;
+                        if (user) {
+                            document.getElementById('profileAvatar').innerHTML = user.avatar ?
+                                `<img src="/${user.avatar}">` :
+                                `<span>${user.username[0].toUpperCase()}</span>`;
+                            document.getElementById('profileNameInput').value = user.username;
+                            document.getElementById('profilePhone').innerText = user.phone;
+                            document.getElementById('profileBioInput').value = user.bio || '';
+                            openModal('profileModal');
                         }
-                        document.getElementById('profileName').innerText = user.username;
-                        document.getElementById('profilePhone').innerText = user.phone;
-                        document.getElementById('profileBio').innerText = user.bio || 'Нет описания';
-                        openModal('profileModal');
                     });
             }
         }
 
-        function openSettings() {
-            openModal('settingsModal');
+        function openProfileSettings() {
+            document.getElementById('profileAvatar').innerHTML = document.getElementById('userAvatar').innerHTML;
+            document.getElementById('profileNameInput').value = document.getElementById('userName').innerText;
+            document.getElementById('profilePhone').innerText = '{{ user['phone'] }}';
+            document.getElementById('profileBioInput').value = '{{ user['bio'] or '' }}';
+            openModal('profileModal');
         }
 
         function updateProfile() {
             const formData = new FormData();
-            formData.append('username', document.getElementById('settingsUsername').value);
-            formData.append('bio', document.getElementById('settingsBio').value);
+            formData.append('username', document.getElementById('profileNameInput').value);
+            formData.append('bio', document.getElementById('profileBioInput').value);
 
             fetch('/api/update_profile', {
                 method: 'POST',
@@ -1557,24 +1523,27 @@
         function openFavorites() {
             fetch('/api/get_favorites')
                 .then(res => res.json())
-                .then(data => {
+                .then(favorites => {
                     const container = document.getElementById('favoritesList');
-                    container.innerHTML = data.favorites.map(fav => `
-                        <div class="favorite-item" style="background: #2a2a2a; border-radius: 12px; padding: 12px; margin-bottom: 12px;">
-                            ${fav.file_path ? `
-                            <div class="message-file" onclick="downloadFile('/${fav.file_path}', '${fav.file_name}')">
-                                <i class="fas fa-file"></i>
-                                <div class="message-file-info">
-                                    <div class="message-file-name">${fav.file_name}</div>
-                                    <div class="message-file-size">${Math.round(fav.file_size / 1024)} KB</div>
+                    if (favorites.length > 0) {
+                        container.innerHTML = favorites.map(fav => `
+                            <div style="background: #2a2a2a; border-radius: 12px; padding: 12px; margin-bottom: 12px;">
+                                ${fav.file_path ? `
+                                <div class="message-file" onclick="downloadFile('/${fav.file_path}', '${fav.file_name}')">
+                                    <i class="fas fa-file"></i>
+                                    <div class="message-file-info">
+                                        <div class="message-file-name">${escapeHtml(fav.file_name)}</div>
+                                        <div class="message-file-size">${Math.round(fav.file_size / 1024)} KB</div>
+                                    </div>
                                 </div>
+                                ` : ''}
+                                ${fav.note ? `<div class="message-text" style="color: white;">${escapeHtml(fav.note)}</div>` : ''}
+                                <div class="message-time" style="color: #6b7280; font-size: 11px; margin-top: 8px;">${fav.created_at}</div>
                             </div>
-                            ` : ''}
-                            ${fav.note ? `<div class="message-text" style="color: white;">${escapeHtml(fav.note)}</div>` : ''}
-                            <div class="message-time" style="color: #6b7280; font-size: 11px; margin-top: 8px;">${fav.created_at}</div>
-                        </div>
-                    `).join('');
-                    closeModal('settingsModal');
+                        `).join('');
+                    } else {
+                        container.innerHTML = '<div class="empty-state"><i class="fas fa-star"></i><p>Избранное пусто</p></div>';
+                    }
                     openModal('favoritesModal');
                 });
         }
@@ -1591,7 +1560,9 @@
                     openFavorites();
                 });
             } else {
-                document.getElementById('fileInput').onchange = function(e) {
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.onchange = function(e) {
                     const file = e.target.files[0];
                     if (file) {
                         const formData = new FormData();
@@ -1604,22 +1575,12 @@
                         });
                     }
                 };
-                document.getElementById('fileInput').click();
+                fileInput.click();
             }
         }
 
         function openPrivacySettings() {
-            fetch('/api/get_privacy_settings')
-                .then(res => res.json())
-                .then(settings => {
-                    document.getElementById('privacyLastSeen').value = settings.last_seen;
-                    document.getElementById('privacyPhoto').value = settings.profile_photo;
-                    document.getElementById('privacyForward').value = settings.forward_messages;
-                    document.getElementById('privacyCalls').value = settings.calls;
-                    document.getElementById('privacyMessages').value = settings.messages;
-                    closeModal('settingsModal');
-                    openModal('privacyModal');
-                });
+            openModal('privacyModal');
         }
 
         function savePrivacySettings() {
@@ -1637,11 +1598,11 @@
                 body: JSON.stringify(settings)
             }).then(() => {
                 closeModal('privacyModal');
+                alert('Настройки сохранены');
             });
         }
 
         function openAppearanceSettings() {
-            closeModal('settingsModal');
             openModal('appearanceModal');
         }
 
@@ -1649,10 +1610,14 @@
             const theme = document.getElementById('themeSelect').value;
             if (theme === 'light') {
                 document.body.style.background = '#f0f0f0';
+                document.querySelector('.sidebar').style.background = '#fff';
+                document.querySelector('.chat-area').style.background = '#fff';
             } else {
-                document.body.style.background = '#0f0f0f';
+                document.body.style.background = '#0a0a0a';
+                document.querySelector('.sidebar').style.background = '#1a1a1a';
+                document.querySelector('.chat-area').style.background = '#0f0f0f';
             }
-            fetch('/api/update_settings', {
+            fetch('/api/update_theme', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({theme: theme})
@@ -1660,108 +1625,30 @@
         }
 
         function changeFontSize() {
-            const size = document.getElementById('fontSize').value;
+            const size = document.getElementById('fontSizeRange').value;
+            document.getElementById('fontSizeValue').innerText = size;
             document.body.style.fontSize = size + 'px';
-            fetch('/api/update_settings', {
+            fetch('/api/update_font_size', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({font_size: size})
+                body: JSON.stringify({font_size: parseInt(size)})
             });
-        }
-
-        function changeChatWallpaper() {
-            const url = prompt('Введите URL изображения для обоев:');
-            if (url) {
-                document.getElementById('messagesArea').style.backgroundImage = `url(${url})`;
-                fetch('/api/update_settings', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({chat_wallpaper: url})
-                });
-            }
-        }
-
-        function showNewCallModal() {
-            openModal('newCallModal');
-        }
-
-        function selectContactForCall(userId, username) {
-            selectedCallContact = userId;
-            selectedCallContactName = username;
-            closeModal('newCallModal');
-            openModal('callTypeModal');
-        }
-
-        function initiateCall(type) {
-            if (selectedCallContact) {
-                makeCallToUser(selectedCallContact, type);
-                closeModal('callTypeModal');
-            }
-        }
-
-        function makeCall(type) {
-            if (currentUserId) {
-                makeCallToUser(currentUserId, type);
-            }
-        }
-
-        function callFromProfile(type) {
-            if (currentUserId) {
-                makeCallToUser(currentUserId, type);
-                closeModal('profileModal');
-            }
-        }
-
-        function makeCallToUser(userId, type) {
-            fetch('/api/make_call', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    receiver_id: userId,
-                    call_type: type
-                })
-            }).then(() => {
-                alert(`Звонок ${type === 'audio' ? 'аудио' : 'видео'} пользователю инициирован`);
-            });
-        }
-
-        function showIncomingCall(data) {
-            if (confirm(`${data.caller_name} звонит вам (${data.call_type === 'audio' ? 'аудио' : 'видео'}). Принять?`)) {
-                fetch('/api/answer_call', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({call_id: data.call_id})
-                });
-            } else {
-                fetch('/api/end_call', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({call_id: data.call_id})
-                });
-            }
-        }
-
-        function deleteChat() {
-            if (confirm('Удалить этот чат?')) {
-                // Implement delete chat
-                closeModal('profileModal');
-            }
-        }
-
-        function blockUser() {
-            if (confirm('Заблокировать этого пользователя?')) {
-                // Implement block user
-                closeModal('profileModal');
-            }
         }
 
         function changeWallpaper() {
-            changeChatWallpaper();
-            closeModal('profileModal');
+            const url = prompt('Введите URL изображения для обоев (или "default" для сброса):');
+            if (url) {
+                document.getElementById('messagesArea').style.backgroundImage = url === 'default' ? '' : `url(${url})`;
+                document.getElementById('messagesArea').style.backgroundSize = 'cover';
+            }
         }
 
-        function deleteAccount() {
-            const confirmation = prompt('Для удаления аккаунта введите ваш номер телефона или имя пользователя:');
+        function openCallsHistory() {
+            document.querySelector('.tab-btn[data-tab="calls"]').click();
+        }
+
+        function openDeleteAccount() {
+            const confirmation = prompt('Введите ваш номер телефона или имя пользователя для подтверждения удаления аккаунта:');
             if (confirmation) {
                 fetch('/api/delete_account', {
                     method: 'POST',
@@ -1777,6 +1664,70 @@
             }
         }
 
+        function showNewCallModal() {
+            loadCallContacts();
+            openModal('newCallModal');
+        }
+
+        function loadCallContacts() {
+            fetch('/api/get_contacts')
+                .then(res => res.json())
+                .then(contacts => {
+                    const container = document.getElementById('callContactsList');
+                    container.innerHTML = contacts.map(contact => `
+                        <div class="contact-item" onclick="selectContactForCall(${contact.id}, '${contact.username}')">
+                            <div class="contact-avatar">
+                                ${contact.avatar ? `<img src="/${contact.avatar}">` : `<span>${contact.username[0].toUpperCase()}</span>`}
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-name">${escapeHtml(contact.username)}</span>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    document.getElementById('callSearch').oninput = function(e) {
+                        const query = e.target.value.toLowerCase();
+                        const items = container.querySelectorAll('.contact-item');
+                        items.forEach(item => {
+                            const name = item.querySelector('.contact-name').innerText.toLowerCase();
+                            item.style.display = name.includes(query) ? 'flex' : 'none';
+                        });
+                    };
+                });
+        }
+
+        function selectContactForCall(userId, username) {
+            selectedCallContact = {id: userId, name: username};
+            closeModal('newCallModal');
+            openModal('callTypeModal');
+        }
+
+        function initiateCall(type) {
+            if (selectedCallContact) {
+                makeCallToUser(selectedCallContact.id, type);
+                closeModal('callTypeModal');
+            }
+        }
+
+        function makeCall(type) {
+            if (currentUserId) {
+                makeCallToUser(currentUserId, type);
+            }
+        }
+
+        function makeCallToUser(userId, type) {
+            fetch('/api/make_call', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    receiver_id: userId,
+                    call_type: type
+                })
+            }).then(() => {
+                alert(`📞 Звонок ${type === 'audio' ? 'аудио' : 'видео'} инициирован`);
+            });
+        }
+
         function downloadFile(url, filename) {
             const a = document.createElement('a');
             a.href = url;
@@ -1786,12 +1737,15 @@
             document.body.removeChild(a);
         }
 
-        function openMedia(url) {
-            window.open(url, '_blank');
-        }
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
 
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
+            if (socket && currentChatId) {
+                socket.emit('typing', {chat_id: currentChatId});
+            }
         }
 
         function openModal(modalId) {
@@ -1802,15 +1756,22 @@
             document.getElementById(modalId).classList.remove('active');
         }
 
-        function toggleMoreMenu() {
-            document.getElementById('moreMenu').classList.toggle('active');
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
         }
 
         function escapeHtml(text) {
+            if (!text) return '';
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
+
+        // Auto-resize textarea
+        document.getElementById('messageInput').addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+        });
 
         // Close modals on outside click
         document.querySelectorAll('.modal').forEach(modal => {
@@ -1821,16 +1782,10 @@
             });
         });
 
-        // Auto-resize textarea
-        document.getElementById('messageInput').addEventListener('input', function() {
-            this.style.height = 'auto';
-            this.style.height = Math.min(this.scrollHeight, 100) + 'px';
-        });
-
         // Initialize
         initSocket();
 
-        // Update unread badge on load
+        // Update unread badge
         const unreadCount = document.querySelectorAll('.chat-badge').length;
         if (unreadCount > 0) {
             document.getElementById('totalUnreadBadge').innerText = unreadCount;
